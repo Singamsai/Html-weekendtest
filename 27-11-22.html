@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <h1>Input radius value and get the volume of sphere</h1>
+        <br><br>
+        <label>Radius</label>
+        <br>
+        <input id="radius" type="number"/>
+        <br><br>
+        <label>Volume</label>
+        <br>
+        <input id="volume" type="number"/>
+        <br><br>
+        <button id="calculate">Calculate</button>
+        <p id="errormsg"></p>
+    </fieldset>
+    <script>
+        const radius = document.getElementById('radius');
+        const volume = document.getElementById('volume');
+        const button = document.getElementById('calculate');
+        let errormsg = document.getElementById('errormsg');
+        button.addEventListener('click', ()=>{
+            let value = radius.value;   
+            if(!value){
+                errormsg.style.display='block';
+                errormsg.innerText='please enter radius value';
+            }
+            else{
+                errormsg.style.display='none';
+                volume.value = (4/3*22/7*value*value*value).toFixed(2);
+            }
+        })
+    </script>
+</body>
+</html>
