@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        h1{
+            color:rgb(7, 7, 100);
+            font-size: 80px;
+        }
+        button{
+            border-radius: 5px;
+            margin:5px;
+            height: 35px;
+        }
+        button:hover{
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Counter</h1>
+        <input id="value" type="number" />
+        <br><br>
+        <div id="buttons">
+            <button id="decrease">D E C R E A S E</button>
+            <button id="reset">R E S E T</button>
+            <button id="increase">I N C R E A S E</button>
+        </div>
+    </center>
+    <script>
+        const value = document.getElementById('value');
+        const decrease  = document.getElementById('decrease');
+        const reset  = document.getElementById('reset');
+        const increase  = document.getElementById('increase');
+        value.value=0;
+        value.style.border='none';
+        value.style.textAlign='center';
+        value.style.fontSize='70px';
+        value.style.color='red';
+        decrease.addEventListener('click', ()=>{
+            value.value -=1;
+        })
+        increase.addEventListener('click', ()=>{
+            value.value =parseInt(value.value)+1;
+        })
+        reset.addEventListener('click', ()=>{
+            value.value =0;
+        })
+    </script>
+</body>
+</html>
