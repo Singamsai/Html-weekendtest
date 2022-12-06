@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color switching</title>
+    <style>
+        *{
+            margin:0;
+        }
+        button{
+            height: 100px;
+            width:100px;
+            border-radius: 50%;
+            border: 2px solid red;
+        }
+        #main-container{
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div id="main-container">
+            <h1>Color Scheme Switcher</h1>
+            <div id="buttons">
+                <button id="green"></button>
+                <button id="white"></button>
+                <button id="blue"></button>
+                <button id="yellow"></button>
+            </div>
+            <br><br>
+            <span>Try clicking  on one of the colors above<br> to change the background color of this page!</span>
+        </div>
+    </center>
+    <script>
+        const body = document.getElementById('main-container');
+        const green = document.getElementById('green');
+        const white = document.getElementById('white');
+        const blue = document.getElementById('blue');
+        const yellow = document.getElementById('yellow');
+        green.style.backgroundColor='green';
+        white.style.backgroundColor='white';
+        blue.style.backgroundColor='blue';
+        yellow.style.backgroundColor='yellow';
+        green.addEventListener('click', ()=>{
+            body.style.background='green';
+        })
+        white.addEventListener('click', ()=>{
+            body.style.background='white';
+        })
+        blue.addEventListener('click', ()=>{
+            body.style.background='blue';
+        })
+        yellow.addEventListener('click', ()=>{
+            body.style.background='yellow';
+        })
+
+    </script>
+</body>
+</html>
