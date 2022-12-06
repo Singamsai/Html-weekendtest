@@ -40,15 +40,17 @@
         value.style.border='none';
         value.style.textAlign='center';
         value.style.fontSize='70px';
-        value.style.color='red';
         decrease.addEventListener('click', ()=>{
             value.value -=1;
+            value.style.color='red';
         })
         increase.addEventListener('click', ()=>{
             value.value =parseInt(value.value)+1;
+            value.style.color='green';
         })
         reset.addEventListener('click', ()=>{
             value.value =0;
+            value.style.color='black';
         })
     </script>
 </body>
