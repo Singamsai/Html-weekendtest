@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+
+        }
+        .field{
+            width: 350px;
+            display: flex;
+            justify-content:space-between; 
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading">CREATE YOUR ACCOUNT</h1>
+    <div class="field">
+        <label>Name</label>
+        <input id="name" type="text" placeholder="Enter your name" required/>
+    </div><br>
+    <div class="field"> 
+        <label>Email</label>
+        <input id="email" type="text" placeholder="Enter your email id" required/>
+    </div><br>
+    <div class="field">
+        <label>Set Password</label>
+        <input id="spassword" type="password" placeholder="Set a password" required/>
+        
+    </div><br>
+    <div class="field">
+        <label>Confirm Password</label>
+        <input id="cpass" type="password" placeholder="Confirm your password" required/>
+    </div><br>
+    <div class="field">
+        <button id="create_button">Create</button>  
+    </div>
+    <p id="errormessage"></p>
+    <script>
+       const name = document.getElementById('name');
+       const createButton = document.getElementById('create_button');
+       const email = document.getElementById('email');
+       const spassword = document.getElementById('spassword');
+       const Cpassword = document.getElementById('cpass');
+       const errorr = document.getElementById('errormessage');
+       createButton.addEventListener('click', ()=>{ 
+        if(name.value.length<3 || name.value.length>16){
+            errorr.innerHTML='name should be 3 to 16 characters';
+            errorr.style.color='red';
+       }
+        else if(!email.value.includes('@gmail.com')){
+        errorr.innerHTML='please enter valid email id';
+        errorr.style.color='red';
+       }
+       else if(spassword.value.length<8){  
+        errorr.innerHTML='password should be 8 characters';
+        errorr.style.color='red';
+       }
+       else if(Cpassword.value!=spassword.value){  
+        errorr.innerHTML='password should match';
+        errorr.style.color='red';
+       }
+       else{
+        errorr.innerHTML="Created Successfully!";
+        name.value='';
+        email.value='';
+        spassword.value='';
+        Cpassword.value='';
+       }
+       }) 
+    </script>
+</body>
+</html>
