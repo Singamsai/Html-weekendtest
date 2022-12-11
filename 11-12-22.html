@@ -14,7 +14,6 @@
             flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
-
         }
         .field{
             width: 350px;
@@ -36,7 +35,6 @@
     <div class="field">
         <label>Set Password</label>
         <input id="spassword" type="password" placeholder="Set a password" required/>
-        
     </div><br>
     <div class="field">
         <label>Confirm Password</label>
@@ -46,6 +44,13 @@
         <button id="create_button">Create</button>  
     </div>
     <p id="errormessage"></p>
+    <table id="row">
+        <tr>
+            <td id="namedata">  </td>
+            <td id="emaildata">  </td>
+            <td id="passworddata"> </td>
+        </tr>
+    </table>
     <script>
        const name = document.getElementById('name');
        const createButton = document.getElementById('create_button');
@@ -53,6 +58,10 @@
        const spassword = document.getElementById('spassword');
        const Cpassword = document.getElementById('cpass');
        const errorr = document.getElementById('errormessage');
+       const namedata= document.getElementById('namedata');
+       const emaildata = document.getElementById('emaildata');
+       const passworddata = document.getElementById('passworddata');
+       const row = document.getElementById('row');
        createButton.addEventListener('click', ()=>{ 
         if(name.value.length<3 || name.value.length>16){
             errorr.innerHTML='name should be 3 to 16 characters';
@@ -72,12 +81,20 @@
        }
        else{
         errorr.innerHTML="Created Successfully!";
+        errorr.style.color='red';
+        namedata.innerHTML = name.value;
+        emaildata.innerHTML = email.value;
+        passworddata.innerHTML = spassword.value;
+        namedata.style.border='1px solid black';
+        passworddata.style.border='1px solid black';
+        emaildata.style.border='1px solid black';
+        row.style.border='1px solid black';
         name.value='';
         email.value='';
         spassword.value='';
         Cpassword.value='';
        }
-       }) 
+       })
     </script>
 </body>
 </html>
