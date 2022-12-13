@@ -45,11 +45,6 @@
     </div>
     <p id="errormessage"></p>
     <table id="row">
-        <tr>
-            <td id="namedata">  </td>
-            <td id="emaildata">  </td>
-            <td id="passworddata"> </td>
-        </tr>
     </table>
     <script>
        const name = document.getElementById('name');
@@ -58,9 +53,6 @@
        const spassword = document.getElementById('spassword');
        const Cpassword = document.getElementById('cpass');
        const errorr = document.getElementById('errormessage');
-       const namedata= document.getElementById('namedata');
-       const emaildata = document.getElementById('emaildata');
-       const passworddata = document.getElementById('passworddata');
        const row = document.getElementById('row');
        createButton.addEventListener('click', ()=>{ 
         if(name.value.length<3 || name.value.length>16){
@@ -82,12 +74,20 @@
        else{
         errorr.innerHTML="Created Successfully!";
         errorr.style.color='red';
-        namedata.innerHTML = name.value;
-        emaildata.innerHTML = email.value;
-        passworddata.innerHTML = spassword.value;
-        namedata.style.border='1px solid black';
-        passworddata.style.border='1px solid black';
-        emaildata.style.border='1px solid black';
+        const tr = document.createElement('tr');
+        const td1 = document.createElement('td');
+        const td2 = document.createElement('td');
+        const td3 = document.createElement('td');
+        td1.innerHTML = name.value;
+        td2.innerHTML = email.value;
+        td3.innerHTML = spassword.value;
+        tr.append(td1);
+        tr.append(td2);
+        tr.append(td3);
+        row.append(tr);
+        td1.style.border='1px solid black';
+        td2.style.border='1px solid black';
+        td3.style.border='1px solid black';
         row.style.border='1px solid black';
         name.value='';
         email.value='';
