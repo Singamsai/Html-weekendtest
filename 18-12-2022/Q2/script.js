@@ -14,7 +14,7 @@ const mark3 = document.getElementById('mark3');
 const mark4 = document.getElementById('mark4');
 
 let i=8;
-let value=setInterval(async ()=>{
+let value=setInterval( ()=>{
     i--;
     seconds.innerHTML= i;
     if(i===0){
@@ -49,19 +49,18 @@ Next.addEventListener('click', ()=>{
     j++;
     let k=8;
     if(j<4){
-        clearInterval(stop);
         Question.innerHTML=questions[j];
         option1.innerHTML=options[j].option1;
         option2.innerHTML=options[j].option2;
         option3.innerHTML=options[j].option3;
         option4.innerHTML=options[j].option4;
         qNo.innerHTML=j+2+' of 5 Questions';
-        seconds.innerHTML= k;
+        
         let stop= setInterval(async ()=>{
             k--;
             seconds.innerHTML= k;
             if(k==0){
-                await clearInterval(stop);
+                 clearInterval(stop);
             }
         }, 1000);
     }
@@ -77,13 +76,12 @@ Next.addEventListener('click', ()=>{
         option4.style.border='none';
     }
 });
-let l=1;
+let l=0;
 document.addEventListener('click', (e)=>{
     const id = e.target.getAttribute('id');
+    l++;
     if(l==1){
-        l++;
         switch(id){
-
             case 'option1':
                 mark1.style.display='inline-block';
                 mark2.style.display='inline-block';
@@ -101,67 +99,69 @@ document.addEventListener('click', (e)=>{
                 break;
         }
     }
-    if(l==2){
-        l++;
-        switch(id){
-            case 'option1':
-                mark1.style.display='inline-block';
-                mark4.style.display='inline-block';
-                break;
-            case 'option2':
-                mark2.style.display='inline-block';
-                mark4.style.display='inline-block';
-                break;
-            case 'option3':
-                mark3.style.display='inline-block';
-                mark4.style.display='inline-block';
-                break;
-            case 'option4':
-                mark4.style.display='inline-block';
-                break;
-        }
-    }
+    l++;
     if(l==3){
-        l++;
         switch(id){
             case 'option1':
                 mark1.style.display='inline-block';
-                mark2.style.display='inline-block';
+                mark4.style.display='inline-block';
                 break;
             case 'option2':
                 mark2.style.display='inline-block';
+                mark4.style.display='inline-block';
                 break;
             case 'option3':
                 mark3.style.display='inline-block';
-                mark2.style.display='inline-block';
+                mark4.style.display='inline-block';
                 break;
             case 'option4':
                 mark4.style.display='inline-block';
-                mark2.style.display='inline-block';
                 break;
         }
     }
-    if(l==4){
-        l++;
-        switch(id){
-            case 'option1':
-                mark1.style.display='inline-block';
-                break;
-            case 'option2':
-                mark2.style.display='inline-block';
-                mark1.style.display='inline-block';
-                break;
-            case 'option3':
-                mark3.style.display='inline-block';
-                mark1.style.display='inline-block';
-                break;
-            case 'option4':
-                mark4.style.display='inline-block';
-                mark1.style.display='inline-block';
-                break;
-        }
-    }
+    l++;
     if(l==5){
+        
+        switch(id){
+            case 'option1':
+                mark1.style.display='inline-block';
+                mark2.style.display='inline-block';
+                break;
+            case 'option2':
+                mark2.style.display='inline-block';
+                break;
+            case 'option3':
+                mark3.style.display='inline-block';
+                mark2.style.display='inline-block';
+                break;
+            case 'option4':
+                mark4.style.display='inline-block';
+                mark2.style.display='inline-block';
+                break;
+        }
+    }
+    l++;
+    if(l==7){
+        
+        switch(id){
+            case 'option1':
+                mark1.style.display='inline-block';
+                break;
+            case 'option2':
+                mark2.style.display='inline-block';
+                mark1.style.display='inline-block';
+                break;
+            case 'option3':
+                mark3.style.display='inline-block';
+                mark1.style.display='inline-block';
+                break;
+            case 'option4':
+                mark4.style.display='inline-block';
+                mark1.style.display='inline-block';
+                break;
+        }
+    }
+    if(l==9){
         l++;
         switch(id){
             case 'option1':
